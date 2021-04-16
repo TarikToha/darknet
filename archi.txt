@@ -1,0 +1,121 @@
+   layer   filters  size/strd(dil)      input                output
+   0 conv     16       3 x 3/ 1    768 x 768 x   3 ->  768 x 768 x  16 0.510 BF
+   1 conv     32       3 x 3/ 2    768 x 768 x  16 ->  384 x 384 x  32 1.359 BF
+   2 conv     16       1 x 1/ 1    384 x 384 x  32 ->  384 x 384 x  16 0.151 BF
+   3 conv     32/   4  3 x 3/ 1    384 x 384 x  16 ->  384 x 384 x  32 0.340 BF
+   4 Shortcut Layer: 2,  wt = 0, wn = 0, outputs: 384 x 384 x  32 0.005 BF
+ ( 384 x 384 x  32) + ( 384 x 384 x  16) 
+   5 conv     64       3 x 3/ 2    384 x 384 x  32 ->  192 x 192 x  64 1.359 BF
+   6 conv     32       1 x 1/ 1    192 x 192 x  64 ->  192 x 192 x  32 0.151 BF
+   7 conv     64/   4  3 x 3/ 1    192 x 192 x  32 ->  192 x 192 x  64 0.340 BF
+   8 Shortcut Layer: 6,  wt = 0, wn = 0, outputs: 192 x 192 x  64 0.002 BF
+ ( 192 x 192 x  64) + ( 192 x 192 x  32) 
+   9 conv     32       1 x 1/ 1    192 x 192 x  64 ->  192 x 192 x  32 0.151 BF
+  10 conv     64/   4  3 x 3/ 1    192 x 192 x  32 ->  192 x 192 x  64 0.340 BF
+  11 Shortcut Layer: 9,  wt = 0, wn = 0, outputs: 192 x 192 x  64 0.002 BF
+ ( 192 x 192 x  64) + ( 192 x 192 x  32) 
+  12 conv    128       3 x 3/ 2    192 x 192 x  64 ->   96 x  96 x 128 1.359 BF
+  13 conv     64       1 x 1/ 1     96 x  96 x 128 ->   96 x  96 x  64 0.151 BF
+  14 conv    128/   4  3 x 3/ 1     96 x  96 x  64 ->   96 x  96 x 128 0.340 BF
+  15 Shortcut Layer: 13,  wt = 0, wn = 0, outputs:  96 x  96 x 128 0.001 BF
+ (  96 x  96 x 128) + (  96 x  96 x  64) 
+  16 conv     64       1 x 1/ 1     96 x  96 x 128 ->   96 x  96 x  64 0.151 BF
+  17 conv    128/   4  3 x 3/ 1     96 x  96 x  64 ->   96 x  96 x 128 0.340 BF
+  18 Shortcut Layer: 16,  wt = 0, wn = 0, outputs:  96 x  96 x 128 0.001 BF
+ (  96 x  96 x 128) + (  96 x  96 x  64) 
+  19 conv     64       1 x 1/ 1     96 x  96 x 128 ->   96 x  96 x  64 0.151 BF
+  20 conv    128/   4  3 x 3/ 1     96 x  96 x  64 ->   96 x  96 x 128 0.340 BF
+  21 Shortcut Layer: 19,  wt = 0, wn = 0, outputs:  96 x  96 x 128 0.001 BF
+ (  96 x  96 x 128) + (  96 x  96 x  64) 
+  22 conv     64       1 x 1/ 1     96 x  96 x 128 ->   96 x  96 x  64 0.151 BF
+  23 conv    128/   4  3 x 3/ 1     96 x  96 x  64 ->   96 x  96 x 128 0.340 BF
+  24 Shortcut Layer: 22,  wt = 0, wn = 0, outputs:  96 x  96 x 128 0.001 BF
+ (  96 x  96 x 128) + (  96 x  96 x  64) 
+  25 conv    128       3 x 3/ 2     96 x  96 x 128 ->   48 x  48 x 128 0.679 BF
+  26 conv     64       1 x 1/ 1     48 x  48 x 128 ->   48 x  48 x  64 0.038 BF
+  27 conv    128/   4  3 x 3/ 1     48 x  48 x  64 ->   48 x  48 x 128 0.085 BF
+  28 Shortcut Layer: 26,  wt = 0, wn = 0, outputs:  48 x  48 x 128 0.000 BF
+ (  48 x  48 x 128) + (  48 x  48 x  64) 
+  29 conv     64       1 x 1/ 1     48 x  48 x 128 ->   48 x  48 x  64 0.038 BF
+  30 conv    128/   4  3 x 3/ 1     48 x  48 x  64 ->   48 x  48 x 128 0.085 BF
+  31 Shortcut Layer: 29,  wt = 0, wn = 0, outputs:  48 x  48 x 128 0.000 BF
+ (  48 x  48 x 128) + (  48 x  48 x  64) 
+  32 conv     64       1 x 1/ 1     48 x  48 x 128 ->   48 x  48 x  64 0.038 BF
+  33 conv    128/   4  3 x 3/ 1     48 x  48 x  64 ->   48 x  48 x 128 0.085 BF
+  34 Shortcut Layer: 32,  wt = 0, wn = 0, outputs:  48 x  48 x 128 0.000 BF
+ (  48 x  48 x 128) + (  48 x  48 x  64) 
+  35 conv     64       1 x 1/ 1     48 x  48 x 128 ->   48 x  48 x  64 0.038 BF
+  36 conv    128/   4  3 x 3/ 1     48 x  48 x  64 ->   48 x  48 x 128 0.085 BF
+  37 Shortcut Layer: 35,  wt = 0, wn = 0, outputs:  48 x  48 x 128 0.000 BF
+ (  48 x  48 x 128) + (  48 x  48 x  64) 
+  38 conv     64       1 x 1/ 1     48 x  48 x 128 ->   48 x  48 x  64 0.038 BF
+  39 max                3x 3/ 1     48 x  48 x  64 ->   48 x  48 x  64 0.001 BF
+  40 route  38 		                           ->   48 x  48 x  64 
+  41 max                5x 5/ 1     48 x  48 x  64 ->   48 x  48 x  64 0.004 BF
+  42 route  38 		                           ->   48 x  48 x  64 
+  43 max                7x 7/ 1     48 x  48 x  64 ->   48 x  48 x  64 0.007 BF
+  44 route  43 41 39 38 	                   ->   48 x  48 x 256 
+  45 conv    128       1 x 1/ 1     48 x  48 x 256 ->   48 x  48 x 128 0.151 BF
+  46 conv     64       1 x 1/ 1     48 x  48 x 128 ->   48 x  48 x  64 0.038 BF
+  47 conv    128/   4  3 x 3/ 1     48 x  48 x  64 ->   48 x  48 x 128 0.085 BF
+  48 Shortcut Layer: 46,  wt = 0, wn = 0, outputs:  48 x  48 x 128 0.000 BF
+ (  48 x  48 x 128) + (  48 x  48 x  64) 
+  49 conv    128       1 x 1/ 1     48 x  48 x 128 ->   48 x  48 x 128 0.075 BF
+  50 conv    128       1 x 1/ 1     48 x  48 x 128 ->   48 x  48 x 128 0.075 BF
+  51 scale Layer: 49
+  52 conv     64       1 x 1/ 1     48 x  48 x 128 ->   48 x  48 x  64 0.038 BF
+  53 conv    128       3 x 3/ 1     48 x  48 x  64 ->   48 x  48 x 128 0.340 BF
+  54 conv     78       1 x 1/ 1     48 x  48 x 128 ->   48 x  48 x  78 0.046 BF
+  55 yolo
+[yolo] params: iou loss: ciou (4), iou_norm: 0.07, obj_norm: 1.00, cls_norm: 1.00, delta_norm: 1.00, scale_x_y: 1.05
+  56 route  53 		                           ->   48 x  48 x 128 
+  57 conv     64       1 x 1/ 1     48 x  48 x 128 ->   48 x  48 x  64 0.038 BF
+  58 upsample                 2x    48 x  48 x  64 ->   96 x  96 x  64
+  59 route  58 24 	                           ->   96 x  96 x 192 
+  60 conv     64/   4  3 x 3/ 1     96 x  96 x 192 ->   96 x  96 x  64 0.510 BF
+  61 conv     32       1 x 1/ 1     96 x  96 x  64 ->   96 x  96 x  32 0.038 BF
+  62 max                5x 5/ 1     96 x  96 x  32 ->   96 x  96 x  32 0.007 BF
+  63 route  61 		                           ->   96 x  96 x  32 
+  64 max                7x 7/ 1     96 x  96 x  32 ->   96 x  96 x  32 0.014 BF
+  65 route  61 		                           ->   96 x  96 x  32 
+  66 max                9x 9/ 1     96 x  96 x  32 ->   96 x  96 x  32 0.024 BF
+  67 route  66 64 62 61 	                   ->   96 x  96 x 128 
+  68 conv     64       1 x 1/ 1     96 x  96 x 128 ->   96 x  96 x  64 0.151 BF
+  69 conv     32       1 x 1/ 1     96 x  96 x  64 ->   96 x  96 x  32 0.038 BF
+  70 conv     64/   4  3 x 3/ 1     96 x  96 x  32 ->   96 x  96 x  64 0.085 BF
+  71 Shortcut Layer: 69,  wt = 0, wn = 0, outputs:  96 x  96 x  64 0.001 BF
+ (  96 x  96 x  64) + (  96 x  96 x  32) 
+  72 conv     64       1 x 1/ 1     96 x  96 x  64 ->   96 x  96 x  64 0.075 BF
+  73 conv     64       1 x 1/ 1     96 x  96 x  64 ->   96 x  96 x  64 0.075 BF
+  74 scale Layer: 72
+  75 conv     32       1 x 1/ 1     96 x  96 x  64 ->   96 x  96 x  32 0.038 BF
+  76 conv     64       3 x 3/ 1     96 x  96 x  32 ->   96 x  96 x  64 0.340 BF
+  77 conv     78       1 x 1/ 1     96 x  96 x  64 ->   96 x  96 x  78 0.092 BF
+  78 yolo
+[yolo] params: iou loss: ciou (4), iou_norm: 0.07, obj_norm: 1.00, cls_norm: 1.00, delta_norm: 1.00, scale_x_y: 1.05
+  79 route  76 		                           ->   96 x  96 x  64 
+  80 conv     32       1 x 1/ 1     96 x  96 x  64 ->   96 x  96 x  32 0.038 BF
+  81 upsample                 2x    96 x  96 x  32 ->  192 x 192 x  32
+  82 route  81 11 	                           ->  192 x 192 x  96 
+  83 conv     32/   4  3 x 3/ 1    192 x 192 x  96 ->  192 x 192 x  32 0.510 BF
+  84 conv     16       1 x 1/ 1    192 x 192 x  32 ->  192 x 192 x  16 0.038 BF
+  85 max                7x 7/ 1    192 x 192 x  16 ->  192 x 192 x  16 0.029 BF
+  86 route  84 		                           ->  192 x 192 x  16 
+  87 max                9x 9/ 1    192 x 192 x  16 ->  192 x 192 x  16 0.048 BF
+  88 route  84 		                           ->  192 x 192 x  16 
+  89 max               11x11/ 1    192 x 192 x  16 ->  192 x 192 x  16 0.071 BF
+  90 route  89 87 85 84 	                   ->  192 x 192 x  64 
+  91 conv     32       1 x 1/ 1    192 x 192 x  64 ->  192 x 192 x  32 0.151 BF
+  92 conv     16       1 x 1/ 1    192 x 192 x  32 ->  192 x 192 x  16 0.038 BF
+  93 conv     32/   4  3 x 3/ 1    192 x 192 x  16 ->  192 x 192 x  32 0.085 BF
+  94 Shortcut Layer: 92,  wt = 0, wn = 0, outputs: 192 x 192 x  32 0.001 BF
+ ( 192 x 192 x  32) + ( 192 x 192 x  16) 
+  95 conv     32       1 x 1/ 1    192 x 192 x  32 ->  192 x 192 x  32 0.075 BF
+  96 conv     32       1 x 1/ 1    192 x 192 x  32 ->  192 x 192 x  32 0.075 BF
+  97 scale Layer: 95
+  98 conv     16       1 x 1/ 1    192 x 192 x  32 ->  192 x 192 x  16 0.038 BF
+  99 conv     32       3 x 3/ 1    192 x 192 x  16 ->  192 x 192 x  32 0.340 BF
+ 100 conv     78       1 x 1/ 1    192 x 192 x  32 ->  192 x 192 x  78 0.184 BF
+ 101 yolo
+[yolo] params: iou loss: ciou (4), iou_norm: 0.07, obj_norm: 1.00, cls_norm: 1.00, delta_norm: 1.00, scale_x_y: 1.05
+Total BFLOPS 13.352
